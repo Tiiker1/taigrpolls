@@ -9,7 +9,7 @@ async def execute(message, args, client, commands):
         color=0xb977ff  # viestin sivun väri
     )
 
-    # Define command categories and associated commands with descriptions
+    # Määrittää komentojen kategorian ja niihin liittyvät komennot kuvauksien kanssa.
     categories = {
         'Komennot': {
             '?kysely': 'Luo kyselyn',
@@ -18,24 +18,24 @@ async def execute(message, args, client, commands):
         },
     }
 
-    # Add command information to the embed
+    # lisää komennon tietoja embediin
     for category, commands_dict in categories.items():
         command_list = '\n'.join([f'`{cmd}` - {desc}' for cmd, desc in commands_dict.items()])
         embed.add_field(name=f'**{category}**', value=command_list, inline=False)
 
-    # Add a thumbnail (you can customize this URL)
+    # lisää thumbnail
     embed.set_thumbnail(url='https://i.imgur.com/YourCoolIcon.png')
 
-    # Set the footer with additional information
+    # aseta footer ja lisä informaatio
     embed.set_footer(
         text='taigrpolls | stable',
         icon_url='https://i.imgur.com/FooterIcon.png'  # Customize the footer icon URL
     )
 
-    # Set a timestamp for the embed (current time)
+    # tekee aikaleiman embed viestille
     embed.timestamp = message.created_at
 
-    # Send the embed message
+    # lähettää embed viestin
     await message.channel.send(embed=embed)
 
 # Assign the execute function to a 'name' attribute
