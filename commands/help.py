@@ -38,5 +38,5 @@ async def execute(message, args, client, commands):
     # lähettää embed viestin
     await message.channel.send(embed=embed)
 
-# Assign the execute function to a 'name' attribute
+# Määrittää funktion suorittamisen 'help' attribuutille
 execute.__command_name__ = 'help'
